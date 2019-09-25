@@ -1,4 +1,4 @@
-### 手写Promise及all,race方法
+# 手写Promise及all,race方法
 
 ```js
 //promise构造函数

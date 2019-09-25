@@ -1,10 +1,10 @@
-### webpack
+# webpack
 
-### 描述
+## 描述
 
 webpack是一个为现代js应用诞生的模块打包器.但其实webpack不仅仅是用来打包JS,css,图片,字体,甚至是你自己发明的东西你都可以用webpack来打包
 
-### loader
+## loader
 
 loader用于对模块源码的转换，loader描述了webpack如何处理非javascript模块，并且在buld中引入这些依赖。loader可以将文件从不同的语言（如TypeScript）转换为JavaScript，或者将内联图像转换为data URL。比如说：CSS-Loader，Style-Loader等
 
@@ -14,21 +14,21 @@ loader从模板路径解析，npm install node_modules。也可以自定义loade
 
 语言类的处理器loader：CoffeeScript，TypeScript，ESNext（Bable）,Sass,Less,Stylus。任何开发技术栈都可以使用webpack。
 
-### plugins
+## plugins
 
 plugins目的在于解决loader无法实现的其他事，从打包优化和压缩，到重新定义环境变量，功能强大到可以用来处理各种各样的任务。webpack提供了很多开箱即用的插件：CommonChunkPlugin主要用于提取第三方库和公共模块，避免首屏加载的bundle文件，或者按需加载的bundle文件体积过大，导致加载时间过长，是一把优化的利器。而在多页面应用中，更是能够为每个页面间的应用程序共享代码创建bundle
 
-### mode
+## mode
 
 可以在config文件里面配置，也可以在CLI参数中配置：webpack --mode=production（一般会选择在CLI，也就是npm scripts里面进行配置）。
 
 在webpack4以下版本，webpack3.XX，通过plugins进行环境变量的配置。
 
-### resolve
+## resolve
 
 resolver是个库，帮助webpack找到bundle需要引入的模块代码，打包时，webpack使用enhanced-resolve来解析路径。 
 
-### manifest
+## manifest
 
 管理所有模块之间的交互。runtime将能够查询模块标识符，检索出背后对应的模块。
 
@@ -76,7 +76,7 @@ module.exports = {
 "build": "webpack --config build/webpack.config.js"
 ```
 
-### bable
+## bable
 
 - 安装babel-loader插件以及babel-care核心代码
 
@@ -94,7 +94,7 @@ module.exports = {
 }
 ```
 
-### 浏览器打开文件
+## 浏览器打开文件
 
 - 安装html-webpack-plugin
 - 生成一个html页面,并将webpack生成的文件注入到html中

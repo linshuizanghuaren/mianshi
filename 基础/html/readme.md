@@ -163,6 +163,9 @@ head子元素大概分为三类，分别是：
 
 ### property和attribute的区别
 
+attribute是标签属性,property是获取的DOM对象上的属性值
+一个js对象有很多property，该集合名字为properties，properties里面有其他property以及attributies，attributies里面有很多attribute
+
 例如一个input标签 `<input value="3" />`
 他的attribute是3
 但如果使用`input.value = 4` 或 直接修改值为4，这时再去getAttribute得到的还是"3"
