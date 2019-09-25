@@ -1,19 +1,19 @@
 
 ### DOM事件级别
 
- - DOM0
-   - onXXX类型的定义事件
-   - element.onclick = function(e) { ... }
- - DOM2
-   - addEventListener方式
-   - element.addEventListener('click', function (e) { ... })
-   - btn.removeEventListener('click', func, false)
-   - btn.attachEvent("onclick", func);
-   - btn.detachEvent("onclick", func);
- - DOM3
-   - 增加了很多事件类型
-   - element.addEventListener('keyup', function (e) { ... })
-   - eventUtil 是自定义对象，textInput 是 DOM3 级事件
+- DOM0
+  - onXXX类型的定义事件
+  - element.onclick = function(e) { ... }
+- DOM2
+  - addEventListener方式
+  - element.addEventListener('click', function (e) { ... })
+  - btn.removeEventListener('click', func, false)
+  - btn.attachEvent("onclick", func);
+  - btn.detachEvent("onclick", func);
+- DOM3
+  - 增加了很多事件类型
+  - element.addEventListener('keyup', function (e) { ... })
+  - eventUtil 是自定义对象，textInput 是 DOM3 级事件
 
 ### DOM 事件模型
 
@@ -41,15 +41,15 @@ DOM标准规定事件流包括三个阶段
 
 ### 如何阻止冒泡？
 
- - 取消默认操作
-   - w3c 的方法是 e.preventDefault()
-   - IE 则是使用 e.returnValue = false;
- - return false
-   - javascript 的 return false 只会阻止默认行为
-   - 是用 jQuery 的话则既阻止默认行为又防止对象冒泡。
- - 阻止冒泡
-   - w3c 的方法是 e.stopPropagation()
-   - IE 则是使用 e.cancelBubble = true
+- 取消默认操作
+  - w3c 的方法是 e.preventDefault()
+  - IE 则是使用 e.returnValue = false;
+- return false
+  - javascript 的 return false 只会阻止默认行为
+  - 是用 jQuery 的话则既阻止默认行为又防止对象冒泡。
+- 阻止冒泡
+  - w3c 的方法是 e.stopPropagation()
+  - IE 则是使用 e.cancelBubble = true
 
 ```js
 [js] view plaincopy
@@ -84,23 +84,6 @@ ulEl.addEventListener('click', function(e){
 
 - 普通事件指的是可以用来注册的事件；
 - 事件绑定是指把事件注册到具体的元素之上。
-
-### 自定义事件
-
-- Event
-- CustomEvent
-
-CustomEvent不仅可以用来做自定义事件，还可以在后面跟一个object做参数
-
-```js
-var evt = new Event('myEvent');
-
-someDom.addEventListener('myEvent', function() {
-  //处理这个自定义事件
-});
-
-someDom.dispatchEvent(evt);
-```
 
 ### IE 的事件处理和 W3C 的事件处理有哪些区别？
 
@@ -179,7 +162,6 @@ Location 对象包含有关当前 URL 的信息。
 | port     | 设置或返回当前 URL 的端口号。|
 | protocol | 设置或返回当前 URL 的协议。|
 | search   | 置或返回从问号 (?) 开始的 URL（查询部分） 。|
-
 
 | 方法  |  描述  |
 |    - |    - |
@@ -435,14 +417,14 @@ function getType(target) {
 
 ### 如何判断一个数据是不是Array
 
- - `Array.isArray(obj)`
-   - ECMAScript 5种的函数，当使用ie8的时候就会出现问题。
- - `obj instanceof Array`
-   - 当用来检测在不同的window或iframe里构造的数组时会失败。这是因为每一个iframe都有它自己的执行环境，彼此之间并不共享原型链，所以此时的判断一个对象是否为数组就会失败。此时我们有一个更好的方式去判断一个对象是否为数组。
- - `Object.prototype.toString.call(obj) == '[object Array]'`
-   - 这个方法比较靠谱
- - `obj.constructor === Array`
-   - constructor属性返回对创建此对象的函数的引用
+- `Array.isArray(obj)`
+  - ECMAScript 5种的函数，当使用ie8的时候就会出现问题。
+- `obj instanceof Array`
+  - 当用来检测在不同的window或iframe里构造的数组时会失败。这是因为每一个iframe都有它自己的执行环境，彼此之间并不共享原型链，所以此时的判断一个对象是否为数组就会失败。此时我们有一个更好的方式去判断一个对象是否为数组。
+- `Object.prototype.toString.call(obj) == '[object Array]'`
+  - 这个方法比较靠谱
+- `obj.constructor === Array`
+  - constructor属性返回对创建此对象的函数的引用
 
 ### undefined和null的区别
 
@@ -535,29 +517,6 @@ JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，J
 - 作用域与变量声明提升
 - 函数参数是对象会发生什么
 - JS中调用函数有哪几种方式
-
-### 如何实现一个new?
-
-```js
-function _new(func, ...args) {
-   let obj = Object.create(func.prototype)
-   let res = func.apply(obj, args);
-   return (res instanceof Object) ? res : obj;
-}
-```
-
-### 构造函数，new时发生了什么？
-
-```javascript
-   var obj  = {};
-   obj.__proto__ = Base.prototype;
-   Base.call(obj);  
-```
-
-1. 创建一个新的对象 obj;
-2. 将这个空对象的__proto__成员指向了Base函数对象prototype成员对象
-3. Base函数对象的this指针替换成obj, 相当于执行了Base.call(obj);
-4. 如果构造函数显示的返回一个对象，那么则这个实例为这个返回的对象。 否则返回这个新创建的对象
 
 ### 函数参数是对象会发生什么问题？
 
@@ -855,119 +814,119 @@ fn2()
 修改器方法
 下面的这些方法会**改变调用它们的对象自身的值**：
 
- - Array.prototype.pop()
-   - 删除数组的最后一个元素，并返回这个元素。
- - Array.prototype.push()
-   - 在数组的末尾增加一个或多个元素，并返回数组的新长度。
- - Array.prototype.shift()
-   - 删除数组的第一个元素，并返回这个元素。
- - Array.prototype.unshift()
-   - 在数组的开头增加一个或多个元素，并返回数组的新长度。
- - Array.prototype.splice()
-   - 在任意的位置给数组添加或删除任意个元素。
- - Array.prototype.reverse()
-   - 颠倒数组中元素的排列顺序，即原先的第一个变为最后一个，原先的最后一个变为第一个。
- - Array.prototype.sort()
-   - 对数组元素进行排序，并返回当前数组。
- - Array.prototype.fill() 
-   - 将数组中指定区间的所有元素的值，都替换成某个固定的值。
- - Array.prototype.copyWithin() 
-   - 在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。
+- Array.prototype.pop()
+  - 删除数组的最后一个元素，并返回这个元素。
+- Array.prototype.push()
+  - 在数组的末尾增加一个或多个元素，并返回数组的新长度。
+- Array.prototype.shift()
+  - 删除数组的第一个元素，并返回这个元素。
+- Array.prototype.unshift()
+  - 在数组的开头增加一个或多个元素，并返回数组的新长度。
+- Array.prototype.splice()
+  - 在任意的位置给数组添加或删除任意个元素。
+- Array.prototype.reverse()
+  - 颠倒数组中元素的排列顺序，即原先的第一个变为最后一个，原先的最后一个变为第一个。
+- Array.prototype.sort()
+  - 对数组元素进行排序，并返回当前数组。
+- Array.prototype.fill()
+  - 将数组中指定区间的所有元素的值，都替换成某个固定的值。
+- Array.prototype.copyWithin()
+  - 在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。
 
 访问方法
 下面的这些方法绝对不会改变调用它们的对象的值，只会返回一个新的数组或者返回一个其它的期望值。
 
- - Array.prototype.join()
-   - 连接所有数组元素组成一个字符串。
- - Array.prototype.slice()
-   - 抽取当前数组中的一段元素组合成一个新数组。
- - Array.prototype.concat()
-   - 返回一个由当前数组和其它若干个数组或者若干个非数组值组合而成的新数组。
- - Array.prototype.includes()
-   - 判断当前数组是否包含某指定的值，如果是返回 true，否则返回 false。
- - Array.prototype.indexOf()
-   - 返回数组中第一个与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
- - Array.prototype.lastIndexOf()
-   - 返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
- - Array.prototype.toSource() 
-   - 返回一个表示当前数组字面量的字符串。遮蔽了原型链上的 Object.prototype.toSource() 方法。
- - Array.prototype.toString()
-   - 返回一个由所有数组元素组合而成的字符串。遮蔽了原型链上的 Object.prototype.toString() 方法。
- - Array.prototype.toLocaleString()
-   - 返回一个由所有数组元素组合而成的本地化后的字符串。遮蔽了原型链上的 Object.prototype.toLocaleString() 方法。
-
+- Array.prototype.join()
+  - 连接所有数组元素组成一个字符串。
+- Array.prototype.slice()
+  - 抽取当前数组中的一段元素组合成一个新数组。
+- Array.prototype.concat()
+  - 返回一个由当前数组和其它若干个数组或者若干个非数组值组合而成的新数组。
+- Array.prototype.includes()
+  - 判断当前数组是否包含某指定的值，如果是返回 true，否则返回 false。
+- Array.prototype.indexOf()
+  - 返回数组中第一个与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
+- Array.prototype.lastIndexOf()
+  - 返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
+- Array.prototype.toSource() 
+  - 返回一个表示当前数组字面量的字符串。遮蔽了原型链上的 Object.prototype.toSource() 方法。
+- Array.prototype.toString()
+  - 返回一个由所有数组元素组合而成的字符串。遮蔽了原型链上的 Object.prototype.toString() 方法。
+- Array.prototype.toLocaleString()
+  - 返回一个由所有数组元素组合而成的本地化后的字符串。遮蔽了原型链上的 Object.prototype.toLocaleString() 方法。
 
 迭代方法
 
 在下面的众多遍历方法中，有很多方法都需要指定一个回调函数作为参数。在每一个数组元素都分别执行完回调函数之前，数组的length属性会被缓存在某个地方，所以，如果你在回调函数中为当前数组添加了新的元素，那么那些新添加的元素是不会被遍历到的。此外，如果在回调函数中对当前数组进行了其它修改，比如改变某个元素的值或者删掉某个元素，那么随后的遍历操作可能会受到未预期的影响。总之，不要尝试在遍历过程中对原数组进行任何修改，虽然规范对这样的操作进行了详细的定义，但为了可读性和可维护性，请不要这样做。
 
- - Array.prototype.forEach()
-   - 为数组中的每个元素执行一次回调函数。
- - Array.prototype.map()
-   - 返回一个由回调函数的返回值组成的新数组。
- - Array.prototype.reduce()
-   - 从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
- - Array.prototype.filter()
-   - 将所有在过滤函数中返回 true 的数组元素放进一个新数组中并返回。
- - Array.prototype.every()
-   - 如果数组中的每个元素都满足测试函数，则返回 true，否则返回 false。
- - Array.prototype.some()
-   - 如果数组中至少有一个元素满足测试函数，则返回 true，否则返回 false。
+- Array.prototype.forEach()
+  - 为数组中的每个元素执行一次回调函数。
+- Array.prototype.map()
+  - 返回一个由回调函数的返回值组成的新数组。
+- Array.prototype.reduce()
+  - 从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
+- Array.prototype.filter()
+  - 将所有在过滤函数中返回 true 的数组元素放进一个新数组中并返回。
+- Array.prototype.every()
+  - 如果数组中的每个元素都满足测试函数，则返回 true，否则返回 false。
+- Array.prototype.some()
+  - 如果数组中至少有一个元素满足测试函数，则返回 true，否则返回 false。
 
- - Array.prototype.find()
-   - 找到第一个满足测试函数的元素并返回那个元素的值，如果找不到，则返回 undefined。
- - Array.prototype.findIndex()
-   - 找到第一个满足测试函数的元素并返回那个元素的索引，如果找不到，则返回 -1。
- - Array.prototype.keys()
-   - 返回一个数组迭代器对象，该迭代器会包含所有数组元素的键。
- - Array.prototype.entries()
-   - 返回一个数组迭代器对象，该迭代器会包含所有数组元素的键值对。
+- Array.prototype.find()
+  - 找到第一个满足测试函数的元素并返回那个元素的值，如果找不到，则返回 undefined。
+- Array.prototype.findIndex()
+  - 找到第一个满足测试函数的元素并返回那个元素的索引，如果找不到，则返回 -1。
+- Array.prototype.keys()
+  - 返回一个数组迭代器对象，该迭代器会包含所有数组元素的键。
+- Array.prototype.entries()
+  - 返回一个数组迭代器对象，该迭代器会包含所有数组元素的键值对。
 
+### [字符串常用API](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### ### [字符串常用API](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
-
- - String.prototype.split()
-   - 通过分离字符串成字串，将字符串对象分割成字符串数组。
- - String.prototype.slice(start, end)
-   - 摘取一个字符串区域，返回一个新的字符串。
- - String.prototype.substr(start, len)
-   - 通过指定字符数返回在指定位置开始的字符串中的字符。
- - String.prototype.substring()
-   - 返回在字符串中指定两个下标之间的字符。
- - String.prototype.trim()
-   - 从字符串的开始和结尾去除空格
- - String.prototype.concat()
-   - 连接两个字符串文本，并返回一个新的字符串。
- - String.prototype.match()
-   - 使用正则表达式与字符串相比较。
- - String.prototype.replace()
-   - 被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。
- - String.prototype.search()
-   - 对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。
- - String.prototype.toString()
-   - 返回用字符串表示的特定对象。重写 Object.prototype.toString 方法。
-
+- String.prototype.split()
+  - 通过分离字符串成字串，将字符串对象分割成字符串数组。
+- String.prototype.slice(start, end)
+  - 摘取一个字符串区域，返回一个新的字符串。
+- String.prototype.substr(start, len)
+  - 通过指定字符数返回在指定位置开始的字符串中的字符。
+- String.prototype.substring()
+  - 返回在字符串中指定两个下标之间的字符。
+- String.prototype.trim()
+  - 从字符串的开始和结尾去除空格
+- String.prototype.concat()
+  - 连接两个字符串文本，并返回一个新的字符串。
+- String.prototype.match()
+  - 使用正则表达式与字符串相比较。
+- String.prototype.replace()
+  - 被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串。
+- String.prototype.search()
+  - 对正则表达式和指定字符串进行匹配搜索，返回第一个出现的匹配项的下标。
+- String.prototype.toString()
+  - 返回用字符串表示的特定对象。重写 Object.prototype.toString 方法。
 
 ### Set、Map、WeakSet 和 WeakMap 的区别？
 
 #### [Set](http://es6.ruanyifeng.com/#docs/set-map#Set)
 
- - 表示有没有，成员的值都是唯一的，没有重复的值
- - 可以接受一个数组（或可迭代的数据结构）作为参数
- - 注：两个对象总是不相等的
+- 表示有没有，成员的值都是唯一的，没有重复的值
+- 可以接受一个数组（或可迭代的数据结构）作为参数
+- 注：两个对象总是不相等的
   
 属性：
- - Set.prototype.constructor：构造函数，默认就是Set函数。
- - Set.prototype.size：返回Set实例的成员总数。
+
+- Set.prototype.constructor：构造函数，默认就是Set函数。
+- Set.prototype.size：返回Set实例的成员总数。
 
 方法：
- - add(value)：添加某个值，返回 Set 结构本身。
-   - `s.add(1).add(2).add(2)`;
- - delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
- - has(value)：返回一个布尔值，表示该值是否为Set的成员。
- - clear()：清除所有成员，没有返回值。
+
+- add(value)：添加某个值，返回 Set 结构本身。
+  - `s.add(1).add(2).add(2)`;
+- delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+- has(value)：返回一个布尔值，表示该值是否为Set的成员。
+- clear()：清除所有成员，没有返回值。
 
 遍历方法
+
 - keys()：返回键名的遍历器
 - values()：返回键值的遍历器
 - entries()：返回键值对的遍历器

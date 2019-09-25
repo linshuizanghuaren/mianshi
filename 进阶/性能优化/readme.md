@@ -92,16 +92,16 @@ DOM结构中的各元素都有自己的盒子，这些都需要浏览器根据�
 
 ### 缓存分类
 
- - 强缓存
-   - 直接从浏览器缓存中读取，不去后台查询是否过期
-   - `Exprise` 过期时间
-   - `Cache-Control:max-age=3600` 过期秒数
- - 协商缓存
-   - 每次使用缓存之前先去后台确认一下
-   - `Last-Modified` `If-Modified-Since` 上次修改时间
-   - `Etag` `If-None-Match`
- - 如何区别
-   - 是否设置了`no-cache`
+- 强缓存
+  - 直接从浏览器缓存中读取，不去后台查询是否过期
+  - `Exprise` 过期时间
+  - `Cache-Control:max-age=3600` 过期秒数
+- 协商缓存
+  - 每次使用缓存之前先去后台确认一下
+  - `Last-Modified` `If-Modified-Since` 上次修改时间
+  - `Etag` `If-None-Match`
+- 如何区别
+  - 是否设置了`no-cache`
 
 ### 利用缓存机制，尽可能使用缓存减少请求
 

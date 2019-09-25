@@ -1,4 +1,6 @@
-### 字符串反转
+# 算法
+
+## 字符串反转
 
 ```js
 function reverse(str){
@@ -8,7 +10,7 @@ function reverse(str){
 }
 ```
 
-### 产生随机数
+## 产生随机数
 
 ```js
 function random(n){
@@ -21,7 +23,7 @@ function random(n){
 }
 ```
 
-### 统计字符串中字母出现次数多的
+## 统计字符串中字母出现次数多的
 
 ```js
 function findMaxDuplicateChar(str) {
@@ -50,7 +52,7 @@ var str = 'qwebbsqgwgasassbdbqqwe'
 findMaxDuplicateChar(str)
 ```
 
-### 写一个方法将数组换成前端更易解析的树状结构
+## 写一个方法将数组换成前端更易解析的树状结构
 
 ```js
 function getTree(data) {
@@ -75,7 +77,6 @@ function getTree(data) {
     }
     return newData;
 }
- 
 var data = [{
     'province': '浙江',
     'city': '温州',
@@ -100,7 +101,7 @@ var data = [{
 console.log(getTree(data));
 ```
 
-#### 冒泡排序
+## 冒泡排序
 
 ```js
  var example=[8,95,34,21,53,12];
@@ -125,7 +126,7 @@ console.log(getTree(data));
 // ...
 ```
 
-#### 插入排序
+## 插入排序
 
 ```js
 // 插入排序 从下标1开始每增1项排序一次，越往后遍历次数越多
@@ -149,7 +150,7 @@ function sort1(array) {
 // 插入操作要进行n-1次
 ```
 
-#### 快速排序
+## 快速排序
 
 ```js
 function sort6(array) {
