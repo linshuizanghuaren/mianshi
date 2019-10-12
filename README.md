@@ -15,6 +15,8 @@
 - [算法](进阶/算法/readme.md)
 - [网络](进阶/网络/readme.md)
 - [性能优化](进阶/性能优化/readme.md)
+- [正则](进阶/正则/readme.md)
+- [GIt](进阶/Git/readme.md)
 
 ## typeScript
 
@@ -24,6 +26,9 @@
 
 - [常识问题](vue/常识问题/readme.md)
 - [常见问题](vue/常见问题/readme.md)
+- [less常规使用](vue/less.md)
+- [sass常规使用](vue/sass.md)
+- [自定义指令](vue/自定义指令.vue)
 
 ## react
 
@@ -34,22 +39,36 @@
 
 ## 小程序
 
+- [常识问题](小程序/readme.md)
+
 ## node
 
-- 异步IO
-- 模块机制
-- 核心模块
+- [基础概念](node/readme.md)
+- [异步IO](node/异步IO.md)
+- [模块机制](node/模块机制.md)
+- [核心模块-path](node/核心模块/path.md)
+- [核心模块-process](node/核心模块/process.md)
+- [事件轮询](node/事件轮询.md))
+- [npm](node/npm.md))
 
 ## 经典题
 
+- [闭包](经典题/闭包.md)
 - [防抖节流](经典题/防抖节流.md)
+- [继承方式](经典题/继承方式.md)
 - [居中](经典题/居中.md)
+- [柯里化](经典题/柯里化.md)
+- [垃圾回收和内存泄露以及优化](经典题/垃圾回收与内存泄漏个优化.md)
+- [设计原则](经典题/设计原则.md)
+- [原型与原型链](经典题/原型与原型链.md)
 - [async await](经典题/async_await.md)
 - [自定义事件](经典题/event.md)
 - [new](经典题/new.md)
-- [实现promise](经典题/promise.md)
+- [实现promise](经典题/自定义promise.md)
 - [this](经典题/this.md)
-- [vue数据双向绑定的实现](经典题/vueDataBind.md)
+- [vue数据双向绑定的实现](经典题/vue数据双向绑定.md)
+- [ES6](经典题/ES6.md)
+- [EventLoop](经典题/EventLoop.md)
 
 ## 刷题
 
