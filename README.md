@@ -32,10 +32,13 @@
 
 ## react
 
-- react
-- react-router
-- redux
-- 组件
+- [常识知识点](react/readme.md)
+- [react-router](react/react-router.md)
+- [redux](react/Redux.md)
+- [VDOM](react/VDOM.md)
+- [Component](react/PureComponent与Component区别.md)
+- [性能优化](react/React中性能优化.md)
+- [与Vue的区别](react/React与Vue区别.md)
 
 ## 小程序
 
@@ -48,8 +51,8 @@
 - [模块机制](node/模块机制.md)
 - [核心模块-path](node/核心模块/path.md)
 - [核心模块-process](node/核心模块/process.md)
-- [事件轮询](node/事件轮询.md))
-- [npm](node/npm.md))
+- [事件轮询](node/事件轮询.md)
+- [npm](node/npm.md)
 
 ## 经典题
 
